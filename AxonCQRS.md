@@ -104,7 +104,7 @@ Through the use of messages as the backbone communication, Axon applies the prin
 
 "A component should neither be aware of, nor make any assumptions about the location of components it interacts with." - Frans van Buul
 
-What this essentially means that any of the services should not need to care about the boiler plate neccesary to interact with any other component. The framework should take care of this. Axon provides the Command Gateway and the Query gateway interfaces to send commands and queries, where the framework implementation handles the way in which it is achived. 
+What this essentially means is that any of the services should not need to care about the boiler plate neccesary to interact with any other component. The framework should take care of this. Axon provides the Command Gateway and the Query gateway interfaces to send commands and queries, where the framework implementation handles the way in which it is achived. 
 
 ### Axon Server
 
@@ -120,22 +120,22 @@ Axon released their own version of an event store, called Axon DB, as a propriat
 
 ### Messaging
 
-Commands 
-- Commands are routed to a single handler 
-- Using consistent hashing, multiple commands for the same entity will end up on the same machine 
-- Provides result
-Events
-- Events will be distributed to all logical handlers
-- Each logical handler will receive one event even if mulitple instances exist 
-- Consumer express ordering requirements (example purchase order events should be in order)
-- No Result
-Queries
-- Routed with load balancing
-- Provides result
-- 3 different types : 
-    - Point to Point - a query for an authoritive answer or one true answer - one destination 
-    - Scatter/Gather Queries - an opinion of a component. Example lookup of price
-    - Subscription Query - keep connection open for updates on the data of a query
+* Commands 
+    - Commands are routed to a single handler 
+    - Using consistent hashing, multiple commands for the same entity will end up on the same machine 
+    - Provides result
+* Events
+    - Events will be distributed to all logical handlers
+    - Each logical handler will receive one event even if mulitple instances exist 
+    - Consumer express ordering requirements (example purchase order events should be in order)
+    - No Result
+* Queries
+    - Routed with load balancing
+    - Provides result
+    - 3 different types : 
+        - Point to Point - a query for an authoritive answer or one true answer - one destination 
+        - Scatter/Gather Queries - an opinion of a component. Example lookup of price
+        - Subscription Query - keep connection open for updates on the data of a query
 
 ## Demo
 
